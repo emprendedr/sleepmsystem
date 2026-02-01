@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleepmsystem - El Mejor Colchón del Mundo</title>
+    <title>Sleepmsystem - Oportunidad de Distribuidor | Oferta Limitada</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -27,10 +27,23 @@
         
         /* Header y Logo */
         header {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%);
             color: white;
             padding: 30px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
         }
         
         .logo-container {
@@ -38,6 +51,8 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .logo {
@@ -47,40 +62,97 @@
         }
         
         .logo-icon {
-            background-color: white;
-            color: #1a237e;
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 32px;
+            box-shadow: 0 6px 15px rgba(0, 180, 216, 0.4);
         }
         
         .logo-text {
-            font-size: 36px;
-            font-weight: 700;
+            font-size: 38px;
+            font-weight: 800;
             letter-spacing: 1px;
+            background: linear-gradient(to right, #fff, #90e0ef);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .logo-subtitle {
             font-size: 16px;
             font-weight: 300;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-top: 5px;
             opacity: 0.9;
+            color: #90e0ef;
         }
         
         .tagline {
             text-align: center;
-            font-size: 20px;
-            margin-top: 10px;
+            font-size: 22px;
+            margin-top: 15px;
             font-weight: 300;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            position: relative;
+            z-index: 1;
+            color: #caf0f8;
+        }
+        
+        /* Contador de oferta */
+        .countdown-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+        }
+        
+        .countdown-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 15px 20px;
+            border-radius: 10px;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .countdown-value {
+            font-size: 36px;
+            font-weight: 800;
+            display: block;
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 14px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        .offer-text {
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: 600;
         }
         
         /* Sección de video */
@@ -91,18 +163,29 @@
         
         .section-title {
             text-align: center;
-            font-size: 32px;
-            color: #1a237e;
+            font-size: 36px;
+            color: #1b3a4b;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #00b4d8;
             margin-bottom: 40px;
-            font-weight: 700;
+            font-weight: 600;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .video-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto 40px;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
         .video-wrapper {
@@ -120,90 +203,164 @@
             border: none;
         }
         
-        /* Sección de CTA */
-        .cta-section {
+        /* Sección de Oportunidad */
+        .opportunity-section {
             padding: 60px 0;
-            background: linear-gradient(135deg, #f5f7ff 0%, #e8edff 100%);
-            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
         
-        .cta-box {
+        .opportunity-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .opportunity-card {
             background-color: white;
-            border-radius: 16px;
-            padding: 50px;
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-top: 5px solid #00b4d8;
         }
         
-        .cta-title {
-            font-size: 32px;
-            color: #1a237e;
+        .opportunity-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .opportunity-icon {
+            background-color: #00b4d8;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
             margin-bottom: 20px;
+        }
+        
+        .opportunity-title {
+            font-size: 24px;
+            color: #1b3a4b;
+            margin-bottom: 15px;
             font-weight: 700;
         }
         
-        .cta-text {
-            font-size: 18px;
+        .opportunity-text {
+            font-size: 16px;
             color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Sección de CTA */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1b3a4b 0%, #0d1b2a 100%);
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-title {
+            font-size: 38px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .cta-highlight {
+            color: #00b4d8;
+        }
+        
+        .cta-text {
+            font-size: 20px;
+            color: #caf0f8;
             margin-bottom: 30px;
             line-height: 1.7;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            background-color: #25D366;
+            gap: 15px;
+            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
             color: white;
             text-decoration: none;
-            font-size: 22px;
-            font-weight: 600;
-            padding: 18px 40px;
+            font-size: 24px;
+            font-weight: 700;
+            padding: 22px 50px;
             border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             margin-top: 20px;
+            border: none;
+            cursor: pointer;
         }
         
         .whatsapp-btn:hover {
-            background-color: #1da851;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
         }
         
         .whatsapp-btn i {
-            font-size: 28px;
+            font-size: 32px;
+        }
+        
+        .cta-note {
+            margin-top: 25px;
+            font-size: 16px;
+            color: #90e0ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         /* Footer */
         footer {
-            background-color: #1a237e;
+            background-color: #0d1b2a;
             color: white;
             padding: 40px 0 20px;
             text-align: center;
         }
         
         .disclaimer {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
             margin-bottom: 30px;
-            max-width: 800px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
         
         .disclaimer h3 {
-            color: #ffcc00;
+            color: #00b4d8;
             margin-bottom: 15px;
-            font-size: 20px;
+            font-size: 22px;
         }
         
         .legal-text {
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 15px;
+            line-height: 1.7;
             margin-bottom: 15px;
             opacity: 0.9;
         }
@@ -218,18 +375,22 @@
         
         .social-disclaimer {
             background-color: rgba(255, 255, 255, 0.05);
-            padding: 15px;
+            padding: 15px 20px;
             border-radius: 8px;
-            margin: 20px auto;
-            max-width: 600px;
-            font-size: 14px;
+            margin: 20px auto 30px;
+            max-width: 700px;
+            font-size: 15px;
             color: #ffcc00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             .logo-text {
-                font-size: 28px;
+                font-size: 30px;
             }
             
             .tagline {
@@ -238,20 +399,42 @@
             }
             
             .section-title {
-                font-size: 26px;
+                font-size: 28px;
+            }
+            
+            .section-subtitle {
+                font-size: 18px;
+            }
+            
+            .countdown-container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 12px 15px;
+            }
+            
+            .countdown-value {
+                font-size: 28px;
             }
             
             .cta-title {
-                font-size: 26px;
+                font-size: 30px;
             }
             
-            .cta-box {
-                padding: 30px 20px;
+            .cta-text {
+                font-size: 18px;
             }
             
             .whatsapp-btn {
-                font-size: 18px;
-                padding: 15px 30px;
+                font-size: 20px;
+                padding: 18px 35px;
+            }
+            
+            .opportunity-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -259,6 +442,7 @@
 <body>
     <!-- Header con Logo -->
     <header>
+        <div class="header-pattern"></div>
         <div class="container">
             <div class="logo-container">
                 <div class="logo">
@@ -267,21 +451,49 @@
                     </div>
                     <div>
                         <h1 class="logo-text">SLEEPSYSTEM</h1>
-                        <div class="logo-subtitle">TECNOLOGÍA DEL DESCANSO</div>
+                        <div class="logo-subtitle">SISTEMA DE DISTRIBUCIÓN EXCLUSIVO</div>
                     </div>
                 </div>
             </div>
-            <p class="tagline">Experimenta el descanso más profundo con la tecnología de colchones más avanzada del mundo</p>
+            <p class="tagline">Únete al sistema de distribución más rentable del 2026 y genera tus primeros $10K mensuales</p>
         </div>
     </header>
+    
+    <!-- Contador de Oferta -->
+    <section class="countdown-section">
+        <div class="container">
+            <h2 class="countdown-title">OFERTA DE LANZAMIENTO EXCLUSIVO</h2>
+            <p class="offer-text">Únete sin costo como distribuidor - Solo por 15 días</p>
+            
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">15</span>
+                    <span class="countdown-label">DÍAS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">23</span>
+                    <span class="countdown-label">HORAS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">59</span>
+                    <span class="countdown-label">MINUTOS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">59</span>
+                    <span class="countdown-label">SEGUNDOS</span>
+                </div>
+            </div>
+            
+            <p class="offer-text" style="margin-top: 20px;">¡Plazas limitadas! Solo para los primeros 50 registrados</p>
+        </div>
+    </section>
     
     <!-- Sección de Video -->
     <section class="video-section">
         <div class="container">
-            <h2 class="section-title">Descubre la Revolución del Descanso</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 18px; color: #555;">
-                Mira este video para entender por qué nuestro colchón es diferente a todo lo que has probado antes.
-            </p>
+            <h2 class="section-title">Descubre el Sistema que Cambiará tu Vida</h2>
+            <p class="section-subtitle">Aprende cómo distribuir el mejor colchón del mundo y genera ingresos récord</p>
+            
             <div class="video-container">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/zRsfxWanxaQ" 
@@ -292,9 +504,44 @@
                     </iframe>
                 </div>
             </div>
+            
             <p style="text-align: center; max-width: 800px; margin: 30px auto 0; font-size: 18px; color: #555;">
-                Después de ver el video, estás a un paso de transformar tu descanso para siempre.
+                Después de ver el video entenderás por qué este es el producto más fácil de vender y el sistema más rentable para distribuidores.
             </p>
+        </div>
+    </section>
+    
+    <!-- Sección de Oportunidad -->
+    <section class="opportunity-section">
+        <div class="container">
+            <h2 class="section-title">Conviértete en Distribuidor Exclusivo</h2>
+            <p class="section-subtitle">Aprende el sistema probado para ganar tus primeros $10K al mes</p>
+            
+            <div class="opportunity-container">
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="opportunity-title">Aprende el Sistema</h3>
+                    <p class="opportunity-text">Te enseñamos paso a paso el método comprobado para distribuir el colchón más vendido del mercado. Sin experiencia necesaria.</p>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="opportunity-title">Comienza Sin Inversión</h3>
+                    <p class="opportunity-text">Estrategia probada para empezar sin dinero. Te damos las herramientas y el conocimiento para generar ingresos desde el día 1.</p>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="opportunity-title">Genera $10K Mensuales</h3>
+                    <p class="opportunity-text">Sigue nuestro sistema y alcanza ingresos de 5 cifras mensuales. Más de 300 distribuidores ya lo han logrado.</p>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -302,27 +549,27 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-box">
-                <h2 class="cta-title">¿Listo para Dormir Mejor que Nunca?</h2>
+                <h2 class="cta-title">¿LISTO PARA SER PARTE DEL <span class="cta-highlight">EQUIPO SLEEPSYSTEM</span>?</h2>
                 <p class="cta-text">
-                    No dejes pasar esta oportunidad de mejorar tu calidad de sueño, tu salud y tu energía diaria. 
-                    Nuestro colchón Sleepmsystem utiliza tecnología patentada que se adapta a tu cuerpo, 
-                    proporcionando un soporte perfecto y un descanso profundo.
+                    Esta es tu oportunidad de unirte al sistema de distribución más rentable del 2026. 
+                    Durante los próximos 15 días estamos abriendo puertas para nuevos distribuidores 
+                    <strong>sin costo de inscripción</strong>.
                 </p>
                 <p class="cta-text">
-                    Agenda una cita con uno de nuestros expertos en descanso para probar el colchón 
-                    y recibir asesoría personalizada. ¡Tu cuerpo te lo agradecerá!
+                    <strong>Aprende el sistema, comienza sin dinero y genera tus primeros $10K al mes</strong> 
+                    distribuyendo el colchón más avanzado del mundo.
                 </p>
                 
-                <a href="https://wa.me/13232850508?text=Vi%20la%20publicidad%20del%20mejor%20colchón%20del%20mundo%20y%20quiero%20probarlo.%20Mi%20nombre%20es:" 
+                <a href="https://wa.me/+13232850508?text=Vi%20la%20publicidad%20del%20mejor%20colchón%20del%20mundo%20y%20quiero%20ser%20distribuidor.%20Mi%20nombre%20es:" 
                    class="whatsapp-btn" 
                    target="_blank" 
                    id="whatsapp-link">
-                    <i class="fab fa-whatsapp"></i> Comenzar Ahora
+                    <i class="fab fa-whatsapp"></i> ¡QUIERO SER DISTRIBUIDOR!
                 </a>
                 
-                <p style="margin-top: 25px; font-size: 16px; color: #666;">
-                    <i class="fas fa-shield-alt"></i> Agenda una demostración sin compromiso
-                </p>
+                <div class="cta-note">
+                    <i class="fas fa-shield-alt"></i> Oportunidad limitada a los primeros 50 registros
+                </div>
             </div>
         </div>
     </section>
@@ -331,51 +578,89 @@
     <footer>
         <div class="container">
             <div class="social-disclaimer">
-                <i class="fas fa-exclamation-triangle"></i> Esta página no es parte de Facebook, Instagram o cualquier otra red social.
+                <i class="fas fa-exclamation-triangle"></i> 
+                <span>Esta página no es parte de Facebook, Instagram o cualquier otra red social.</span>
             </div>
             
             <div class="disclaimer">
-                <h3>Declaración de Ingresos</h3>
+                <h3>Declaración de Ingresos y Oportunidad</h3>
                 <p class="legal-text">
-                    Los resultados e ingresos mostrados son ejemplos de lo que han logrado algunos de nuestros clientes, 
-                    pero no son garantía de que tú obtendrás los mismos resultados. Tu éxito depende de tu esfuerzo, 
-                    dedicación y disciplina en seguir nuestro sistema. Sleepmsystem provee las herramientas y el conocimiento, 
-                    pero la implementación y resultados finales dependen de ti.
+                    Los resultados de ingresos mostrados ($10K mensuales) son ejemplos de lo que han logrado algunos de nuestros distribuidores más exitosos, 
+                    pero no son garantía de que tú obtendrás los mismos resultados. Tu éxito como distribuidor Sleepmsystem depende completamente de tu 
+                    <strong>esfuerzo, dedicación y disciplina</strong> en seguir nuestro sistema probado.
                 </p>
                 <p class="legal-text">
-                    Las declaraciones sobre los beneficios de nuestros productos están basadas en estudios clínicos 
-                    y testimonios de clientes, pero los resultados individuales pueden variar.
+                    Sleepmsystem provee las herramientas, entrenamiento y productos, pero los resultados finales dependen de tu implementación 
+                    y compromiso. La oferta de unirse sin costo es válida por tiempo limitado y está sujeta a disponibilidad.
                 </p>
             </div>
             
             <div class="copyright">
                 <p>&copy; 2026 Sleepmsystem. Todos los derechos reservados.</p>
-                <p>Tecnología del Descanso Profesional | Sistema de Sueño Avanzado</p>
+                <p>Sistema de Distribución Exclusivo | Oportunidad de Ingresos Comprobada</p>
             </div>
         </div>
     </footer>
     
     <script>
+        // Contador regresivo de 15 días
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 15); // 15 días desde hoy
+            
+            const distance = launchDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector(".countdown-container").innerHTML = 
+                    "<div style='font-size: 28px; font-weight: bold; padding: 20px;'>¡OFERTA FINALIZADA!</div>";
+            }
+        }
+        
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Llamada inicial
+        
         // Función para abrir WhatsApp con mensaje personalizado
         document.getElementById('whatsapp-link').addEventListener('click', function(e) {
-            // Podemos agregar lógica adicional aquí si es necesario
-            console.log('Redirigiendo a WhatsApp para agendar cita...');
-            
-            // En un caso real, podríamos pedir el nombre antes de redirigir
-            // const userName = prompt("Por favor, ingresa tu nombre para la cita:");
-            // if(userName) {
-            //     const whatsappMsg = `Vi la publicidad del mejor colchón del mundo y quiero probarlo. Mi nombre es: ${userName}`;
-            //     const encodedMsg = encodeURIComponent(whatsappMsg);
-            //     this.href = `https://wa.me/13232850508?text=${encodedMsg}`;
-            // } else {
-            //     e.preventDefault();
-            //     alert("Por favor ingresa tu nombre para agendar la cita.");
-            // }
+            // Podríamos pedir el nombre antes de redirigir
+            const userName = prompt("Por favor, ingresa tu nombre completo para registrarte como distribuidor:");
+            if(userName && userName.trim() !== "") {
+                const whatsappMsg = `Vi la publicidad del mejor colchón del mundo y quiero ser distribuidor. Mi nombre es: ${userName.trim()}`;
+                const encodedMsg = encodeURIComponent(whatsappMsg);
+                this.href = `https://wa.me/+13232850508?text=${encodedMsg}`;
+                console.log('Redirigiendo a WhatsApp para registro como distribuidor...');
+            } else if (userName !== null) {
+                e.preventDefault();
+                alert("Por favor ingresa tu nombre para registrarte como distribuidor.");
+            }
         });
         
-        // Mensaje de confirmación al cargar la página
-        window.addEventListener('DOMContentLoaded', (event) => {
-            console.log('Página Sleepmsystem cargada correctamente');
+        // Efecto de aparición gradual para las tarjetas
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.opportunity-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300 + (index * 200));
+            });
+            
+            console.log('Página Sleepmsystem - Oportunidad de Distribuidor cargada correctamente');
         });
     </script>
 </body>
