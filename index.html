@@ -186,10 +186,11 @@
             font-weight: 600;
         }
         
-        /* Sección de video */
+        /* Sección de video - ACTUALIZADA */
         .video-section {
             padding: 60px 0;
             background-color: white;
+            position: relative;
         }
         
         .section-title {
@@ -217,6 +218,7 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            position: relative;
         }
         
         .video-wrapper {
@@ -232,6 +234,70 @@
             width: 100%;
             height: 100%;
             border: none;
+        }
+        
+        /* Overlay de bloqueo de video */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .video-overlay.active {
+            display: flex;
+        }
+        
+        .overlay-icon {
+            font-size: 60px;
+            color: #00b4d8;
+            margin-bottom: 20px;
+        }
+        
+        .overlay-title {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .overlay-text {
+            font-size: 18px;
+            color: #caf0f8;
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .overlay-btn {
+            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .overlay-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
         }
         
         /* Sección de Oportunidad */
@@ -461,6 +527,20 @@
                 font-size: 28px;
             }
             
+            .overlay-title {
+                font-size: 24px;
+            }
+            
+            .overlay-text {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+            
+            .overlay-btn {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+            
             .cta-title {
                 font-size: 30px;
             }
@@ -536,7 +616,7 @@
         </div>
     </section>
     
-    <!-- Sección de Video -->
+    <!-- Sección de Video - CON OVERLAY DE BLOQUEO -->
     <section class="video-section">
         <div class="container">
             <h2 class="section-title">Descubre el Sistema que Cambiará tu Vida</h2>
@@ -544,12 +624,32 @@
             
             <div class="video-container">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/zRsfxWanxaQ" 
-                            title="Sleepmsystem - El mejor colchón del mundo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
+                    <iframe 
+                        id="video-player"
+                        src="https://www.youtube.com/embed/zRsfxWanxaQ?enablejsapi=1&rel=0&modestbranding=1&controls=1&showinfo=0" 
+                        title="Sleepmsystem - El mejor colchón del mundo" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
                     </iframe>
+                    
+                    <!-- Overlay que aparece 2 segundos antes del final -->
+                    <div class="video-overlay" id="video-overlay">
+                        <div class="overlay-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3 class="overlay-title">¡Tu Oportunidad Está Aquí!</h3>
+                        <p class="overlay-text">
+                            Has visto lo suficiente para tomar una decisión. Ahora es el momento de actuar. 
+                            Únete a los distribuidores que ya están generando $10K mensuales con Sleepmsystem.
+                        </p>
+                        <button class="overlay-btn" id="overlay-whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Comenzar Ahora
+                        </button>
+                        <p style="color: #90e0ef; margin-top: 15px; font-size: 14px;">
+                            <i class="fas fa-exclamation-circle"></i> Solo 2 segundos te separan de cambiar tu vida
+                        </p>
+                    </div>
                 </div>
             </div>
             
@@ -690,18 +790,84 @@
             const intervaloContador = setInterval(actualizarContador, 1000);
         }
         
-        // Iniciar contador cuando la página cargue
-        document.addEventListener('DOMContentLoaded', iniciarContador);
+        // CONTROL DE VIDEO - BLOQUEO 2 SEGUNDOS ANTES DEL FINAL
+        let player;
+        let videoDuration = 0;
+        let checkInterval;
+        
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video-player', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+        
+        function onPlayerReady(event) {
+            // Obtener la duración del video cuando esté listo
+            videoDuration = player.getDuration();
+            console.log('Duración del video:', videoDuration, 'segundos');
+        }
+        
+        function onPlayerStateChange(event) {
+            // Si el video está reproduciéndose, comenzar a verificar el tiempo
+            if (event.data == YT.PlayerState.PLAYING) {
+                startVideoTimeCheck();
+            } else {
+                clearInterval(checkInterval);
+            }
+        }
+        
+        function startVideoTimeCheck() {
+            checkInterval = setInterval(function() {
+                if (player && player.getCurrentTime) {
+                    const currentTime = player.getCurrentTime();
+                    const timeLeft = videoDuration - currentTime;
+                    
+                    // Mostrar en consola para debugging
+                    console.log('Tiempo actual:', currentTime.toFixed(1), 'Tiempo restante:', timeLeft.toFixed(1));
+                    
+                    // Si quedan 2 segundos o menos, mostrar el overlay
+                    if (timeLeft <= 2 && timeLeft > 0) {
+                        showVideoOverlay();
+                        clearInterval(checkInterval);
+                    }
+                }
+            }, 500); // Verificar cada medio segundo
+        }
+        
+        function showVideoOverlay() {
+            const overlay = document.getElementById('video-overlay');
+            overlay.classList.add('active');
+            
+            // Pausar el video
+            if (player && player.pauseVideo) {
+                player.pauseVideo();
+            }
+            
+            console.log('Video bloqueado - Overlay mostrado');
+        }
+        
+        // Función para abrir WhatsApp desde el overlay
+        document.getElementById('overlay-whatsapp-btn').addEventListener('click', function() {
+            const nombreUsuario = prompt("Por favor, ingresa tu nombre completo para comenzar:");
+            if(nombreUsuario && nombreUsuario.trim() !== "") {
+                const mensajeWhatsApp = `Vi la publicidad del mejor colchón del mundo y quiero ser distribuidor. Mi nombre es: ${nombreUsuario.trim()}`;
+                const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
+                window.open(`https://wa.me/+13232850508?text=${mensajeCodificado}`, '_blank');
+            } else if (nombreUsuario !== null) {
+                alert("Por favor ingresa tu nombre para comenzar.");
+            }
+        });
         
         // Función para abrir WhatsApp con mensaje personalizado
         document.getElementById('whatsapp-link').addEventListener('click', function(e) {
-            // Podemos pedir el nombre antes de redirigir
             const nombreUsuario = prompt("Por favor, ingresa tu nombre completo para registrarte como distribuidor:");
             if(nombreUsuario && nombreUsuario.trim() !== "") {
                 const mensajeWhatsApp = `Vi la publicidad del mejor colchón del mundo y quiero ser distribuidor. Mi nombre es: ${nombreUsuario.trim()}`;
                 const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
                 this.href = `https://wa.me/+13232850508?text=${mensajeCodificado}`;
-                console.log('Redirigiendo a WhatsApp para registro como distribuidor...');
             } else if (nombreUsuario !== null) {
                 e.preventDefault();
                 alert("Por favor ingresa tu nombre para registrarte como distribuidor.");
@@ -710,6 +876,15 @@
         
         // Efecto de aparición gradual para las tarjetas
         document.addEventListener('DOMContentLoaded', function() {
+            // Iniciar contador
+            iniciarContador();
+            
+            // Cargar API de YouTube
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            
             const tarjetas = document.querySelectorAll('.opportunity-card');
             tarjetas.forEach((tarjeta, index) => {
                 tarjeta.style.opacity = '0';
@@ -722,9 +897,9 @@
                 }, 300 + (index * 200));
             });
             
-            console.log('Página Sleepmsystem - Oportunidad de Distribuidor cargada correctamente');
+            console.log('Página Sleepmsystem cargada correctamente');
             console.log('Contador iniciado correctamente');
-            console.log('Botón English visible en la esquina superior derecha');
+            console.log('Sistema de bloqueo de video activado');
         });
     </script>
 </body>
