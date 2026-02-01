@@ -1,270 +1,382 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SleepM | Descansa Mejor Hoy</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-body{
-    margin:0;
-    font-family:'Poppins', sans-serif;
-    background:#0a1929;
-    color:#fff;
-}
-
-/* HERO */
-
-.hero{
-    background:linear-gradient(135deg,#08121f,#0f2d44);
-    padding:80px 20px;
-    text-align:center;
-}
-
-.hero h1{
-    font-size:2.5rem;
-    margin-bottom:15px;
-}
-
-.hero span{
-    color:#4fd1ff;
-}
-
-.hero p{
-    font-size:1.2rem;
-    max-width:700px;
-    margin:auto;
-    line-height:1.6;
-}
-
-/* BOTON */
-
-.btn{
-    display:inline-block;
-    background:#25D366;
-    color:#fff;
-    padding:15px 30px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:600;
-    margin-top:25px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#1ebe5c;
-}
-
-/* SECCIONES */
-
-.section{
-    padding:60px 20px;
-    max-width:1100px;
-    margin:auto;
-}
-
-.section h2{
-    text-align:center;
-    margin-bottom:40px;
-    color:#4fd1ff;
-}
-
-/* PROBLEMAS */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#12263a;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-}
-
-/* BENEFICIOS */
-
-.benefits li{
-    margin:15px 0;
-    font-size:1.1rem;
-}
-
-/* CTA FINAL */
-
-.cta{
-    background:linear-gradient(135deg,#0f2d44,#08121f);
-    padding:70px 20px;
-    text-align:center;
-}
-
-.cta h2{
-    font-size:2rem;
-    margin-bottom:20px;
-}
-
-/* FOOTER */
-
-footer{
-    background:#08121f;
-    text-align:center;
-    padding:20px;
-    font-size:0.9rem;
-    color:#aaa;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleepmsystem - El Mejor Colchón del Mundo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header y Logo */
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 30px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            background-color: white;
+            color: #1a237e;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo-subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 10px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Sección de video */
+        .video-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #1a237e;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Sección de CTA */
+        .cta-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8edff 100%);
+            text-align: center;
+        }
+        
+        .cta-box {
+            background-color: white;
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .cta-title {
+            font-size: 32px;
+            color: #1a237e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .cta-text {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 600;
+            padding: 18px 40px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+            margin-top: 20px;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn i {
+            font-size: 28px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .disclaimer {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .disclaimer h3 {
+            color: #ffcc00;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .legal-text {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-disclaimer {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 600px;
+            font-size: 14px;
+            color: #ffcc00;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 28px;
+            }
+            
+            .tagline {
+                font-size: 18px;
+                padding: 0 15px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .cta-title {
+                font-size: 26px;
+            }
+            
+            .cta-box {
+                padding: 30px 20px;
+            }
+            
+            .whatsapp-btn {
+                font-size: 18px;
+                padding: 15px 30px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<h1>¿Cansado de <span>dormir mal</span> y despertar sin energía?</h1>
-
-<p>
-Miles de personas viven con dolor, estrés y agotamiento diario…  
-sin saber que el descanso correcto puede cambiarlo todo.
-</p>
-
-<a class="btn" href="https://wa.me/13232850508" target="_blank">
-💬 Hablar por WhatsApp Gratis
-</a>
-
-</section>
-
-<!-- PROBLEMAS -->
-
-<section class="section">
-
-<h2>❌ ¿Te Identificas Con Esto?</h2>
-
-<div class="grid">
-
-<div class="card">
-😴 No descansas aunque duermas muchas horas
-</div>
-
-<div class="card">
-💢 Dolor en cuello, espalda o cintura
-</div>
-
-<div class="card">
-🧠 Estrés, ansiedad y cansancio mental
-</div>
-
-<div class="card">
-⚡ Falta de energía durante el día
-</div>
-
-</div>
-
-</section>
-
-<!-- SOLUCION -->
-
-<section class="section">
-
-<h2>✅ La Solución: SleepM con Biocristales</h2>
-
-<p style="text-align:center;max-width:800px;margin:auto;font-size:1.1rem;line-height:1.7">
-
-SleepM no es una almohada común.  
-Es tecnología diseñada para ayudarte a:
-
-<br><br>
-
-✔ Relajar tu cuerpo  
-✔ Mejorar tu circulación  
-✔ Reducir tensión  
-✔ Dormir profundo  
-✔ Despertar renovado  
-
-</p>
-
-</section>
-
-<!-- BENEFICIOS -->
-
-<section class="section">
-
-<h2>🌟 Beneficios Reales</h2>
-
-<ul class="benefits">
-
-<li>✔ Mejor calidad de sueño</li>
-<li>✔ Menos dolor corporal</li>
-<li>✔ Más energía diaria</li>
-<li>✔ Menos estrés</li>
-<li>✔ Mejor enfoque mental</li>
-<li>✔ Bienestar integral</li>
-
-</ul>
-
-</section>
-
-<!-- TESTIMONIO -->
-
-<section class="section">
-
-<h2>💬 Lo Que Dicen Nuestros Clientes</h2>
-
-<div class="grid">
-
-<div class="card">
-“Después de una semana ya dormía mejor y sin dolor.”
-</div>
-
-<div class="card">
-“Me cambió mis noches y mi energía diaria.”
-</div>
-
-<div class="card">
-“No sabía que una almohada podía ayudar tanto.”
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA FINAL -->
-
-<section class="cta">
-
-<h2>🎁 Prueba y Consulta 100% GRATIS</h2>
-
-<p style="max-width:700px;margin:auto;font-size:1.1rem;line-height:1.6">
-
-Antes de comprar, recibe orientación personalizada  
-y descubre si SleepM es ideal para ti.
-
-<br><br>
-
-Sin compromiso. Sin presión. Solo resultados.
-
-</p>
-
-<a class="btn" href="https://wa.me/13232850508" target="_blank">
-📲 Quiero Mi Consulta Gratis
-</a>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-© 2026 SleepM | Bienestar y Descanso Premium  
-<br>
-Contacto: +1 (323) 285-0508
-
-</footer>
-
+    <!-- Header con Logo -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div>
+                        <h1 class="logo-text">SLEEPSYSTEM</h1>
+                        <div class="logo-subtitle">TECNOLOGÍA DEL DESCANSO</div>
+                    </div>
+                </div>
+            </div>
+            <p class="tagline">Experimenta el descanso más profundo con la tecnología de colchones más avanzada del mundo</p>
+        </div>
+    </header>
+    
+    <!-- Sección de Video -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Descubre la Revolución del Descanso</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 18px; color: #555;">
+                Mira este video para entender por qué nuestro colchón es diferente a todo lo que has probado antes.
+            </p>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/zRsfxWanxaQ" 
+                            title="Sleepmsystem - El mejor colchón del mundo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 30px auto 0; font-size: 18px; color: #555;">
+                Después de ver el video, estás a un paso de transformar tu descanso para siempre.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Sección de Llamada a la Acción -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2 class="cta-title">¿Listo para Dormir Mejor que Nunca?</h2>
+                <p class="cta-text">
+                    No dejes pasar esta oportunidad de mejorar tu calidad de sueño, tu salud y tu energía diaria. 
+                    Nuestro colchón Sleepmsystem utiliza tecnología patentada que se adapta a tu cuerpo, 
+                    proporcionando un soporte perfecto y un descanso profundo.
+                </p>
+                <p class="cta-text">
+                    Agenda una cita con uno de nuestros expertos en descanso para probar el colchón 
+                    y recibir asesoría personalizada. ¡Tu cuerpo te lo agradecerá!
+                </p>
+                
+                <a href="https://wa.me/1234567890?text=Vi%20la%20publicidad%20del%20mejor%20colchón%20del%20mundo%20y%20quiero%20probarlo.%20Mi%20nombre%20es:" 
+                   class="whatsapp-btn" 
+                   target="_blank" 
+                   id="whatsapp-link">
+                    <i class="fab fa-whatsapp"></i> Comenzar Ahora
+                </a>
+                
+                <p style="margin-top: 25px; font-size: 16px; color: #666;">
+                    <i class="fas fa-shield-alt"></i> Agenda una demostración sin compromiso
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-disclaimer">
+                <i class="fas fa-exclamation-triangle"></i> Esta página no es parte de Facebook, Instagram o cualquier otra red social.
+            </div>
+            
+            <div class="disclaimer">
+                <h3>Declaración de Ingresos</h3>
+                <p class="legal-text">
+                    Los resultados e ingresos mostrados son ejemplos de lo que han logrado algunos de nuestros clientes, 
+                    pero no son garantía de que tú obtendrás los mismos resultados. Tu éxito depende de tu esfuerzo, 
+                    dedicación y disciplina en seguir nuestro sistema. Sleepmsystem provee las herramientas y el conocimiento, 
+                    pero la implementación y resultados finales dependen de ti.
+                </p>
+                <p class="legal-text">
+                    Las declaraciones sobre los beneficios de nuestros productos están basadas en estudios clínicos 
+                    y testimonios de clientes, pero los resultados individuales pueden variar.
+                </p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Sleepmsystem. Todos los derechos reservados.</p>
+                <p>Tecnología del Descanso Profesional | Sistema de Sueño Avanzado</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Función para abrir WhatsApp con mensaje personalizado
+        document.getElementById('whatsapp-link').addEventListener('click', function(e) {
+            // Podemos agregar lógica adicional aquí si es necesario
+            console.log('Redirigiendo a WhatsApp para agendar cita...');
+            
+            // En un caso real, podríamos pedir el nombre antes de redirigir
+            // const userName = prompt("Por favor, ingresa tu nombre para la cita:");
+            // if(userName) {
+            //     const whatsappMsg = `Vi la publicidad del mejor colchón del mundo y quiero probarlo. Mi nombre es: ${userName}`;
+            //     const encodedMsg = encodeURIComponent(whatsappMsg);
+            //     this.href = `https://wa.me/1234567890?text=${encodedMsg}`;
+            // } else {
+            //     e.preventDefault();
+            //     alert("Por favor ingresa tu nombre para agendar la cita.");
+            // }
+        });
+        
+        // Mensaje de confirmación al cargar la página
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('Página Sleepmsystem cargada correctamente');
+        });
+    </script>
 </body>
 </html>
