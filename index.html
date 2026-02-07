@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleepmsystem - Oportunidad de Distribuidor | Oferta Limitada</title>
+    <title>Sleepmsystem - Sistema de Distribución Exclusivo | Oferta Limitada</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* RESET Y CONFIGURACIÓN GENERAL */
         * {
             margin: 0;
             padding: 0;
@@ -17,6 +18,7 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -25,43 +27,42 @@
             padding: 0 20px;
         }
         
-        /* Botón de Idioma - POSICIÓN FIJA */
-        .language-switcher {
+        /* BOTÓN FLOTANTE DE WHATSAPP */
+        .whatsapp-float {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             z-index: 1000;
         }
         
-        .lang-btn {
-            background: rgba(37, 55, 84, 0.9);
+        .whatsapp-btn-float {
+            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
         
-        .lang-btn:hover {
-            background: rgba(0, 180, 216, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 180, 216, 0.4);
+        .whatsapp-btn-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
         
-        /* Header y Logo */
+        /* HEADER */
         header {
             background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%);
             color: white;
             padding: 40px 0 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -137,7 +138,7 @@
             color: #caf0f8;
         }
         
-        /* Contador de oferta - CORREGIDO */
+        /* CONTADOR DE OFERTA */
         .countdown-section {
             background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
             color: white;
@@ -157,6 +158,7 @@
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         
         .countdown-item {
@@ -186,7 +188,7 @@
             font-weight: 600;
         }
         
-        /* Sección de video - ACTUALIZADA */
+        /* SECCIÓN DE VIDEO */
         .video-section {
             padding: 60px 0;
             background-color: white;
@@ -223,7 +225,7 @@
         
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
         }
         
@@ -236,7 +238,129 @@
             border: none;
         }
         
-        /* Popup Modal al final del video */
+        /* SECCIÓN DE PRIMER PASO - NUEVA */
+        .first-step-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .first-step-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            border-top: 5px solid #00b4d8;
+        }
+        
+        .first-step-icon {
+            background-color: #25D366;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 25px;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .first-step-title {
+            font-size: 32px;
+            color: #1b3a4b;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .first-step-text {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .step-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: rgba(0, 180, 216, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #00b4d8;
+        }
+        
+        .step-list li {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #333;
+            padding-left: 10px;
+        }
+        
+        /* BOTONES */
+        .cta-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+            padding: 22px 50px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 180, 216, 0.4);
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 180, 216, 0.6);
+        }
+        
+        .cta-btn-primary i {
+            font-size: 28px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+            padding: 22px 50px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-btn i {
+            font-size: 32px;
+        }
+        
+        /* POPUP MODAL */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -319,22 +443,8 @@
             line-height: 1.6;
         }
         
-        .modal-highlight {
-            background: rgba(0, 180, 216, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #00b4d8;
-        }
-        
-        .modal-highlight p {
-            margin: 0;
-            color: #90e0ef;
-            font-style: italic;
-        }
-        
         .modal-btn {
-            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
             color: white;
             border: none;
             padding: 18px 40px;
@@ -347,7 +457,7 @@
             justify-content: center;
             gap: 12px;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
             margin: 20px auto 0;
             width: 100%;
             max-width: 300px;
@@ -355,10 +465,10 @@
         
         .modal-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
+            box-shadow: 0 12px 25px rgba(0, 180, 216, 0.6);
         }
         
-        /* Sección de Oportunidad */
+        /* SECCIÓN DE OPORTUNIDAD */
         .opportunity-section {
             padding: 60px 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -410,7 +520,7 @@
             line-height: 1.7;
         }
         
-        /* Sección de CTA */
+        /* SECCIÓN CTA */
         .cta-section {
             padding: 80px 0;
             background: linear-gradient(135deg, #1b3a4b 0%, #0d1b2a 100%);
@@ -451,34 +561,6 @@
             margin-right: auto;
         }
         
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
-            color: white;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: 700;
-            padding: 22px 50px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            margin-top: 20px;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .whatsapp-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
-        }
-        
-        .whatsapp-btn i {
-            font-size: 32px;
-        }
-        
         .cta-note {
             margin-top: 25px;
             font-size: 16px;
@@ -489,12 +571,26 @@
             gap: 10px;
         }
         
-        /* Footer */
+        /* FOOTER */
         footer {
             background-color: #0d1b2a;
             color: white;
             padding: 40px 0 20px;
             text-align: center;
+        }
+        
+        .social-disclaimer {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px auto 30px;
+            max-width: 700px;
+            font-size: 15px;
+            color: #ffcc00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         .disclaimer {
@@ -528,32 +624,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .social-disclaimer {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin: 20px auto 30px;
-            max-width: 700px;
-            font-size: 15px;
-            color: #ffcc00;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        /* Responsive */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .language-switcher {
-                top: 15px;
-                right: 15px;
-            }
-            
-            .lang-btn {
-                padding: 8px 15px;
-                font-size: 13px;
-            }
-            
             .logo-text {
                 font-size: 30px;
             }
@@ -572,7 +644,6 @@
             }
             
             .countdown-container {
-                flex-wrap: wrap;
                 gap: 10px;
             }
             
@@ -611,7 +682,7 @@
                 font-size: 18px;
             }
             
-            .whatsapp-btn {
+            .whatsapp-btn, .cta-btn-primary {
                 font-size: 20px;
                 padding: 18px 35px;
             }
@@ -619,18 +690,41 @@
             .opportunity-container {
                 grid-template-columns: 1fr;
             }
+            
+            .first-step-box {
+                padding: 30px 20px;
+            }
+            
+            .first-step-title {
+                font-size: 26px;
+            }
+            
+            .first-step-text {
+                font-size: 18px;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-btn-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Botón de Idioma - POSICIÓN FIJA -->
-    <div class="language-switcher">
-        <a href="https://sleepmsysteme.vercel.app" class="lang-btn">
-            <i class="fas fa-language"></i> English
+    <!-- Botón flotante de WhatsApp -->
+    <div class="whatsapp-float">
+        <a href="https://wa.link/w8dfp7" class="whatsapp-btn-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
         </a>
     </div>
     
-    <!-- Header con Logo -->
+    <!-- Header -->
     <header>
         <div class="header-pattern"></div>
         <div class="container">
@@ -649,7 +743,7 @@
         </div>
     </header>
     
-    <!-- Contador de Oferta - FUNCIONANDO -->
+    <!-- Contador de Oferta -->
     <section class="countdown-section">
         <div class="container">
             <h2 class="countdown-title">OFERTA DE LANZAMIENTO EXCLUSIVO</h2>
@@ -703,7 +797,44 @@
         </div>
     </section>
     
-    <!-- Popup Modal que aparece al terminar el video -->
+    <!-- Sección de Primer Paso -->
+    <section class="first-step-section">
+        <div class="container">
+            <div class="first-step-box">
+                <div class="first-step-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h2 class="first-step-title">EL PRIMER PASO ES GRATIS</h2>
+                <p class="first-step-text">
+                    <strong>Suscríbete gratis al sistema y herramienta de marketing</strong> para tener acceso a entrenamientos exclusivos y comenzar tu camino hacia la monetización automatizada de 5 pasos simples.
+                </p>
+                
+                <div class="step-list">
+                    <p><strong>Lo que obtendrás al suscribirte:</strong></p>
+                    <ol>
+                        <li>Acceso gratuito a la plataforma de entrenamiento</li>
+                        <li>Herramientas de marketing automatizadas</li>
+                        <li>Sistema de 5 pasos para monetización</li>
+                        <li>Entrenamiento paso a paso para distribuidores</li>
+                        <li>Soporte y guía personalizada</li>
+                    </ol>
+                </div>
+                
+                <a href="https://aivdownline.haily.ai/?id=Raquel71&firstname=Raquel&lastname=Gonzalez" 
+                   class="cta-btn-primary" 
+                   target="_blank" 
+                   id="first-step-link">
+                    <i class="fas fa-play-circle"></i> COMIENZA EL PRIMER PASO AQUÍ
+                </a>
+                
+                <p style="margin-top: 25px; color: #666; font-size: 16px;">
+                    <i class="fas fa-shield-alt"></i> Suscripción 100% gratuita - Sin compromisos
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Popup Modal -->
     <div class="modal-overlay" id="video-end-modal">
         <div class="modal-content">
             <button class="modal-close" id="modal-close">&times;</button>
@@ -720,15 +851,15 @@
             </div>
             
             <p class="modal-text">
-                Agenda una llamada con uno de nuestros agentes especializados para comenzar tu camino hacia los $10K mensuales.
+                ¡No esperes más! Da el primer paso completamente GRATIS.
             </p>
             
-            <button class="modal-btn" id="modal-whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> Comenzar Ahora
+            <button class="modal-btn" id="modal-first-step-btn">
+                <i class="fas fa-user-plus"></i> Comienza Gratis
             </button>
             
             <p style="color: #90e0ef; margin-top: 20px; font-size: 14px;">
-                <i class="fas fa-clock"></i> Respuesta garantizada en menos de 24 horas
+                <i class="fas fa-clock"></i> Acceso inmediato después del registro
             </p>
         </div>
     </div>
@@ -767,7 +898,7 @@
         </div>
     </section>
     
-    <!-- Sección de Llamada a la Acción -->
+    <!-- Sección CTA -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-box">
@@ -782,11 +913,11 @@
                     distribuyendo el colchón más avanzado del mundo.
                 </p>
                 
-                <a href="https://wa.me/+13232850508" 
+                <a href="https://wa.link/w8dfp7" 
                    class="whatsapp-btn" 
                    target="_blank" 
                    id="whatsapp-link">
-                    <i class="fab fa-whatsapp"></i> ¡QUIERO SER DISTRIBUIDOR!
+                    <i class="fab fa-whatsapp"></i> ¡CONSULTA MÁS INFORMACIÓN!
                 </a>
                 
                 <div class="cta-note">
@@ -824,19 +955,20 @@
         </div>
     </footer>
     
+    <!-- JavaScript -->
     <script>
-        // CONTADOR FUNCIONANDO - 15 días exactos
+        // ============================================
+        // FUNCIÓN DEL CONTADOR DE OFERTA
+        // ============================================
         function iniciarContador() {
-            // Establecer fecha de finalización: 15 días desde ahora
             const fechaFinal = new Date();
             fechaFinal.setDate(fechaFinal.getDate() + 15);
-            fechaFinal.setHours(23, 59, 59, 999); // Establecer al final del día
+            fechaFinal.setHours(23, 59, 59, 999);
             
             function actualizarContador() {
                 const ahora = new Date().getTime();
                 const tiempoRestante = fechaFinal - ahora;
                 
-                // Si el contador ha terminado
                 if (tiempoRestante < 0) {
                     document.getElementById("days").textContent = "00";
                     document.getElementById("hours").textContent = "00";
@@ -846,25 +978,24 @@
                     return;
                 }
                 
-                // Calcular días, horas, minutos, segundos
                 const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
                 const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
                 const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
                 
-                // Mostrar los valores
                 document.getElementById("days").textContent = dias < 10 ? "0" + dias : dias;
                 document.getElementById("hours").textContent = horas < 10 ? "0" + horas : horas;
                 document.getElementById("minutes").textContent = minutos < 10 ? "0" + minutos : minutos;
                 document.getElementById("seconds").textContent = segundos < 10 ? "0" + segundos : segundos;
             }
             
-            // Actualizar inmediatamente y luego cada segundo
             actualizarContador();
             const intervaloContador = setInterval(actualizarContador, 1000);
         }
         
-        // CONTROL DE VIDEO - POPUP AL FINALIZAR
+        // ============================================
+        // CONTROL DE VIDEO YOUTUBE
+        // ============================================
         let player;
         let videoEnded = false;
         
@@ -878,54 +1009,64 @@
         }
         
         function onPlayerReady(event) {
-            console.log('Video listo para reproducirse');
+            console.log('Video de YouTube listo para reproducirse');
         }
         
         function onPlayerStateChange(event) {
-            // Cuando el video termina (estado = 0)
             if (event.data === YT.PlayerState.ENDED && !videoEnded) {
                 videoEnded = true;
                 mostrarPopup();
             }
             
-            // Resetear el flag si el video se reinicia
             if (event.data === YT.PlayerState.PLAYING) {
                 videoEnded = false;
             }
         }
         
+        // ============================================
+        // FUNCIONES DEL POPUP MODAL
+        // ============================================
         function mostrarPopup() {
             const modal = document.getElementById('video-end-modal');
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevenir scroll
+            document.body.style.overflow = 'hidden';
             console.log('Popup mostrado - Video terminado');
         }
         
         function cerrarPopup() {
             const modal = document.getElementById('video-end-modal');
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restaurar scroll
+            document.body.style.overflow = 'auto';
         }
         
-        // FUNCIÓN MEJORADA PARA WHATSAPP CON NUEVO MENSAJE
-        function abrirWhatsAppConMensajePersonalizado() {
-            const nombreUsuario = prompt("Por favor, ingresa tu nombre completo para agendar y un agente estará contigo en la brevedad posible. Muchas gracias.");
-            
-            if (nombreUsuario && nombreUsuario.trim() !== "") {
-                const nombreLimpio = nombreUsuario.trim();
-                const mensajeWhatsApp = `Hola, vi la presentación de Sleepmsystem y estoy interesado en convertirme en distribuidor. Mi nombre es: ${nombreLimpio}. Por favor, agendemos una llamada para comenzar.`;
-                const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
-                const urlWhatsApp = `https://wa.me/+13232850508?text=${mensajeCodificado}`;
-                
-                // Abrir WhatsApp en nueva pestaña
-                window.open(urlWhatsApp, '_blank');
-                console.log('WhatsApp abierto con mensaje personalizado');
-            } else if (nombreUsuario !== null) {
-                alert("Por favor ingresa tu nombre completo para que un agente pueda contactarte.");
-            }
+        // ============================================
+        // FUNCIONES DE REDIRECCIÓN
+        // ============================================
+        function irAlPrimerPaso() {
+            const url = 'https://aivdownline.haily.ai/?id=Raquel71&firstname=Raquel&lastname=Gonzalez';
+            window.open(url, '_blank');
+            console.log('Redirigiendo al primer paso gratuito');
+            trackConversion('primer_paso_gratis');
         }
         
-        // Event Listeners
+        function abrirWhatsApp() {
+            const url = 'https://wa.link/w8dfp7';
+            window.open(url, '_blank');
+            console.log('Abriendo WhatsApp');
+            trackConversion('whatsapp_contacto');
+        }
+        
+        // ============================================
+        // TRACKING DE CONVERSIONES
+        // ============================================
+        function trackConversion(tipo) {
+            console.log(`Conversión registrada: ${tipo} - ${new Date().toLocaleString()}`);
+            // Agregar aquí código de Google Analytics, Facebook Pixel, etc.
+        }
+        
+        // ============================================
+        // INICIALIZACIÓN AL CARGAR LA PÁGINA
+        // ============================================
         document.addEventListener('DOMContentLoaded', function() {
             // Iniciar contador
             iniciarContador();
@@ -936,29 +1077,39 @@
             const firstScriptTag = document.getElementsByTagName('script')[0];
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
             
-            // Cerrar modal con botón X
+            // Eventos del modal
             document.getElementById('modal-close').addEventListener('click', cerrarPopup);
             
-            // Cerrar modal haciendo clic fuera
             document.getElementById('video-end-modal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     cerrarPopup();
                 }
             });
             
-            // Botón "Comenzar Ahora" en el modal
-            document.getElementById('modal-whatsapp-btn').addEventListener('click', function() {
+            // Eventos de botones del modal
+            document.getElementById('modal-first-step-btn').addEventListener('click', function() {
                 cerrarPopup();
-                abrirWhatsAppConMensajePersonalizado();
+                irAlPrimerPaso();
             });
             
-            // Botón principal de WhatsApp
+            // Eventos de botones principales
+            document.getElementById('first-step-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                irAlPrimerPaso();
+            });
+            
             document.getElementById('whatsapp-link').addEventListener('click', function(e) {
                 e.preventDefault();
-                abrirWhatsAppConMensajePersonalizado();
+                abrirWhatsApp();
             });
             
-            // Efecto de aparición gradual para las tarjetas
+            // Evento del botón flotante de WhatsApp
+            document.querySelector('.whatsapp-btn-float').addEventListener('click', function(e) {
+                e.preventDefault();
+                abrirWhatsApp();
+            });
+            
+            // Efectos de animación para tarjetas
             const tarjetas = document.querySelectorAll('.opportunity-card');
             tarjetas.forEach((tarjeta, index) => {
                 tarjeta.style.opacity = '0';
@@ -971,16 +1122,44 @@
                 }, 300 + (index * 200));
             });
             
-            console.log('Página Sleepmsystem cargada correctamente');
-            console.log('Sistema de popup al final del video activado');
-            console.log('Mensaje de WhatsApp actualizado con nueva redacción');
+            // Efecto para la sección de primer paso
+            const firstStepBox = document.querySelector('.first-step-box');
+            if (firstStepBox) {
+                firstStepBox.style.opacity = '0';
+                firstStepBox.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    firstStepBox.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    firstStepBox.style.opacity = '1';
+                    firstStepBox.style.transform = 'translateY(0)';
+                }, 500);
+            }
+            
+            console.log('Página Sleepmsystem completamente cargada y funcional');
         });
         
-        // Tecla Escape para cerrar modal
+        // ============================================
+        // EVENTOS DE TECLADO
+        // ============================================
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 cerrarPopup();
             }
+        });
+        
+        // ============================================
+        // TRACKING ADICIONAL PARA ENLACES
+        // ============================================
+        document.querySelectorAll('a[href*="aivdownline.haily.ai"]').forEach(enlace => {
+            enlace.addEventListener('click', function() {
+                trackConversion('primer_paso_gratis_enlace');
+            });
+        });
+        
+        document.querySelectorAll('a[href*="wa.link"]').forEach(enlace => {
+            enlace.addEventListener('click', function() {
+                trackConversion('whatsapp_contacto_enlace');
+            });
         });
     </script>
 </body>
